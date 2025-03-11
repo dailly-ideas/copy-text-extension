@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Text Extractor",
+  "version": "1.0",
+  "description": "Extract text from PDF files and images on websites",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs",
+    "clipboardWrite",
+    "clipboardRead",
+    "tabCapture"
+  ],
+  "host_permissions": ["<all_urls>", "http://10.1.56.160:5001/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>", "*://*/*.pdf"],
+      "js": ["pdf.min.js", "content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pdf.worker.js",
+        "tesseract.min.js",
+        "tesseract-core.wasm.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

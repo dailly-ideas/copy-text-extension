@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Text Extractor</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Text Extractor</h1>
+
+      <div id="screenshot-preview" style="display: none">
+        <h2>Screenshot Preview</h2>
+        <img id="preview-image" src="" alt="Screenshot preview" />
+        <div>
+          <button id="extract-screenshot-btn">Extract Text</button>
+          <button id="cancel-screenshot-btn">Cancel</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="selectTextBtn" class="primary-btn">
+          Select Text on Page
+        </button>
+        <button id="screenshotBtn" class="primary-btn">
+          Capture Screenshot
+        </button>
+        <button id="extractPdfBtn">Extract from PDF</button>
+        <button id="extractImageBtn">Extract from Images</button>
+        <button id="extractAllBtn">Extract All Text</button>
+      </div>
+
+      <div class="status-container">
+        <div id="status">Ready</div>
+        <div class="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="result-container">
+        <h2>Extracted Text</h2>
+        <div class="actions">
+          <button id="copyBtn">Copy</button>
+          <button id="downloadBtn">Download</button>
+          <button id="clearBtn">Clear</button>
+        </div>
+        <textarea id="resultText" readonly></textarea>
+      </div>
+    </div>
+
+    <script src="pdf.min.js"></script>
+    <script src="tesseract.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
